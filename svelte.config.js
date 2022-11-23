@@ -3,18 +3,18 @@ import preprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  kit: {
-    adapter: adapter(),
-    alias: {
+	kit: {
+		adapter: adapter(),
+		alias: {
 			'@/*': 'src/*'
 		}
-  },
-  
-  preprocess: [
-    preprocess({
-      postcss: true,
-    }),
-  ],
+	},
+
+	preprocess: [
+		preprocess({
+			postcss: true
+		})
+	]
 };
 
 export default config;

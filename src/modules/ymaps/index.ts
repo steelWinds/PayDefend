@@ -1,1 +1,1 @@
-export {default} from './init-map' 
+export { default } from './init-map';
