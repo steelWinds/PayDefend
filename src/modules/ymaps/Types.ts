@@ -6,9 +6,9 @@ type MapOptions = {
 	zoom: number;
 	restrictMapArea?: RestrictCoords;
 	controls?: string[];
-  searchOptions?: {
-    [key: string]: boolean | string | number;
-  };
+	searchOptions?: {
+		[key: string]: boolean | string | number;
+	};
 	id: string;
 };
 
