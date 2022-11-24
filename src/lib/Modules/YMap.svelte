@@ -1,25 +1,41 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+  import type { IEvent, IMapState, IMapOptions } from 'yandex-maps'
+
+	import { onMount, createEventDispatcher } from 'svelte';
 	import initMap from '@/modules/ymaps';
 
-	export let id: string;
-	export let center: [number, number];
-	export let zoom: number;
-	export let controls: string[] | undefined;
-	export let restrictMapArea: [[number, number], [number, number]] | undefined;
-	//export let map: any;
+  interface $$Events {
+    mapClick: CustomEvent<{
+      yevent: IEvent,
+    }>
+  }
 
+	export let id: string;
+	export let state: IMapState;
+  export let options: IMapOptions;
+  export let handlerType: string | null = null;
+
+  const dispatch = createEventDispatcher();
+  
 	$: mapId = `map-cart_${id}`;
 
 	const API_KEY = import.meta.env.VITE_YANDEX_API_KEY;
 
+  const handler = (yevent: IEvent) => {
+    dispatch('mapClick', {
+      yevent
+    })
+  }
+
 	onMount(async () => {
 		await initMap(API_KEY, {
-			center,
-			zoom,
-			controls,
-			restrictMapArea,
-			id: mapId
+      state,
+      options,
+			id: mapId,
+      event: {
+        name: 'click',
+        handler
+      }
 		});
 	});
 </script>

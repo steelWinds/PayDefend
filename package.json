@@ -36,6 +36,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@types/yandex-maps": "^2.1.28",
 		"husky": "^8.0.2",
 		"ymaps": "^0.2.1"
 	}
