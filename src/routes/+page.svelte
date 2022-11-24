@@ -70,27 +70,27 @@
 	</h4>
 
 	{#await getGealocationDataPromise then data}
-    <div class="tw-flex tw-flex-col">
-      {#if !data?.length}
-        <h4>Увы, мы не смогли найти организации в указаном вами месте...</h4>
-      {/if}
+		<div class="tw-flex tw-flex-col">
+			{#if !data?.length}
+				<h4>Увы, мы не смогли найти организации в указаном вами месте...</h4>
+			{/if}
 
-      {#if data?.length}
-        {#each data as geoOrganization, idx (idx)}
-          <button
-            class="tw-break-words tw-w-full tw-text-start tw-text-base tw-py-3.5 tw-px-1 hover:tw-bg-x11 tw-transition-color tw-duration-150"
-            on:click={() => {
-              currentOrganization = geoOrganization;
+			{#if data?.length}
+				{#each data as geoOrganization, idx (idx)}
+					<button
+						class="tw-break-words tw-w-full tw-text-start tw-text-base tw-py-3.5 tw-px-1 hover:tw-bg-x11 tw-transition-color tw-duration-150"
+						on:click={() => {
+							currentOrganization = geoOrganization;
 
-              showOrganizationModal = true;
-            }}
-          >
-            {geoOrganization.properties.CompanyMetaData.name}
-          </button>
-        {/each}
-      {/if}
-    </div>
-  {/await}
+							showOrganizationModal = true;
+						}}
+					>
+						{geoOrganization.properties.CompanyMetaData.name}
+					</button>
+				{/each}
+			{/if}
+		</div>
+	{/await}
 </Modal>
 
 <Modal
