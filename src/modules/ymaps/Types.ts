@@ -1,16 +1,13 @@
-import type { IEvent, IMapState, IMapOptions } from 'yandex-maps'
+import type { IEvent, IMapState, IMapOptions } from 'yandex-maps';
 
-type Coords = [number, number];
-type RestrictCoords = [Coords, Coords];
+interface MapOptions {
+	id: string;
+	state?: IMapState;
+	options?: IMapOptions;
+	event?: {
+		name: string;
+		handler: (e: IEvent) => void;
+	};
+}
 
-type MapOptions = {
-  id: string
-  state?: IMapState
-	options?: IMapOptions
-  event?: {
-    name: string,
-    handler: (e: IEvent) => void
-  }
-};
-
-export type { Coords, RestrictCoords, MapOptions };
+export type { MapOptions };

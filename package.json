@@ -18,6 +18,7 @@
 		"@typescript-eslint/eslint-plugin": "^5.27.0",
 		"@typescript-eslint/parser": "^5.27.0",
 		"autoprefixer": "^10.4.13",
+		"carbon-components-svelte": "^0.70.12",
 		"eslint": "^8.16.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-svelte3": "^4.0.0",
@@ -38,6 +39,8 @@
 	"dependencies": {
 		"@types/yandex-maps": "^2.1.28",
 		"husky": "^8.0.2",
+		"ohmyfetch": "^0.4.21",
+		"ufo": "^1.0.0",
 		"ymaps": "^0.2.1"
 	}
 }

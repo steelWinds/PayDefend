@@ -16,7 +16,15 @@ module.exports = {
 			}
 		},
 
-		//colors: {},
+		colors: {
+			teel: 'rgb(32 229 194)',
+			green: 'rgb(61 232 34)',
+			aqua: 'rgb(23 219 232)',
+			x11: 'rgba(186 188 190 / .6)',
+			white: 'rgb(255 255 255)',
+			'raisin-black': 'rgb(36 33 36)',
+			'white-crystal': 'rgba(255 255 255 / .8)'
+		},
 
 		transitionDuration: {
 			50: '50ms',
