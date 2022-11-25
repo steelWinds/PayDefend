@@ -38,7 +38,7 @@
 		value={$phone.value}
 		mask={'{+7} (000) 000-00-00'}
 		placeholder="Введите свой номер"
-		invalid={!$name.valid}
+		invalid={!$phone.valid}
 		on:change={({ detail }) => ($phone.value = detail.value)}
 	/>
 
