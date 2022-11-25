@@ -8,7 +8,6 @@ const useFetch = async <T>(
 	options?: FetchOptions
 ): Promise<FetchDataType<T>> => {
 	const request = ohmyfetch.raw(URI, {
-		//baseURL: import.meta.env.VITE_API_BASE_URL
 		...options
 	});
 

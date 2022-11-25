@@ -4,6 +4,50 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+	--c-blue: rgb(15 98 254 / 1);
+	--c-white: rgb(255 255 255);
+}
+
+.custom-toast {
+	--toastContainerTop: auto;
+	--toastContainerRight: auto;
+	--toastContainerBottom: 5vmin;
+	--toastContainerLeft: calc(50vw - 8rem);
+	--toastContainerZIndex: 50;
+
+	--toastPadding: 0;
+	--toastMsgPadding: 0;
+
+	--toastBarBackground: var(--c-white);
+	--toastBtnFont: 'Lexend';
+}
+
+button:disabled {
+	@apply tw-opacity-50;
+}
+
+.custom-radio-group {
+	--cds-icon-01: var(--c-blue);
+
+	&
+		.bx--radio-button:focus
+		+ .bx--radio-button__label
+		.bx--radio-button__appearance {
+		outline: none;
+		border-style: dotted;
+	}
+}
+
+a:link {
+	text-decoration: underline;
+	text-decoration-color: var(--c-blue);
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
 .custom-modal {
 	@apply tw-p-3;
 
@@ -22,7 +66,75 @@
 		}
 	}
 
+	&.fixed-inline-size {
+		& .bx--modal-container {
+			@apply tw-max-w-[45vmax];
+		}
+	}
+
 	& .bx--modal-container {
 		@apply tw-static;
+	}
+}
+
+.custom-file-uploader {
+	& .bx--file__selected-file {
+		@apply tw-bg-x11;
+	}
+
+	& .bx--btn {
+		@apply tw-p-3;
+	}
+}
+
+.map-image {
+	background: center / cover no-repeat fixed url(assets/map-template.png);
+}
+
+.custom-input {
+	@apply tw-p-2
+    tw-border-2
+    tw-border-transparent;
+
+	&.invalid {
+		@apply tw-border-red;
+	}
+}
+
+.toast {
+	& ._toastMsg {
+		align-self: stretch;
+	}
+
+	&.success {
+		& ._toastItem {
+			@apply tw-rounded
+        tw-bg-green
+        tw-text-white;
+		}
+	}
+
+	&.danger {
+		& ._toastItem {
+			@apply tw-rounded
+        tw-bg-red
+        tw-text-white;
+		}
+	}
+
+	&.default {
+		& ._toastItem {
+			@apply tw-rounded
+        tw-bg-blue
+        tw-text-white;
+		}
+	}
+}
+
+.out-in-transition {
+	display: grid;
+
+	& > * {
+		grid-area: 1/1/ 2/2;
 	}
 }

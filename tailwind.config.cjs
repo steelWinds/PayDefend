@@ -17,13 +17,15 @@ module.exports = {
 		},
 
 		colors: {
-			teel: 'rgb(32 229 194)',
-			green: 'rgb(61 232 34)',
+			transparent: 'transparent',
+			green: 'rgb(102 204 153)',
 			aqua: 'rgb(23 219 232)',
-			x11: 'rgba(186 188 190 / .6)',
+			x11: 'rgba(186 188 190 / .5)',
+			blue: 'rgb(15 98 254 / 1)',
+			'blue-crystal': 'rgb(15 98 254 / .6)',
 			white: 'rgb(255 255 255)',
-			'raisin-black': 'rgb(36 33 36)',
-			'white-crystal': 'rgba(255 255 255 / .8)'
+			'white-crystal': 'rgba(255 255 255 / .8)',
+			red: 'rgba(204 51 0)'
 		},
 
 		transitionDuration: {

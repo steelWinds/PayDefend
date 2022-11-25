@@ -9,3 +9,4 @@ declare namespace App {
 }
 
 declare module 'ymaps';
+declare module '@imask/svelte';

@@ -15,6 +15,7 @@
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
+		"@types/cookie": "^0.5.1",
 		"@typescript-eslint/eslint-plugin": "^5.27.0",
 		"@typescript-eslint/parser": "^5.27.0",
 		"autoprefixer": "^10.4.13",
@@ -37,9 +38,15 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@imask/svelte": "^6.4.3",
+		"@macfja/svelte-persistent-store": "^2.2.1",
 		"@types/yandex-maps": "^2.1.28",
+		"@zerodevx/svelte-toast": "^0.8.2",
+		"cookie": "^0.5.0",
 		"husky": "^8.0.2",
 		"ohmyfetch": "^0.4.21",
+		"svelte-forms": "^2.3.1",
+		"svelte-loading-spinners": "^0.3.4",
 		"ufo": "^1.0.0",
 		"ymaps": "^0.2.1"
 	}

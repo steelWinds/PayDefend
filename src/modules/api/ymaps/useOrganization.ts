@@ -13,11 +13,9 @@ const API_KEY = import.meta.env.VITE_YANDEX_BIZ_API_KEY;
 const useOrganizations = async (props: Props) => {
 	const { coords, results, lang } = props;
 
-	const addresses = await useGeocode({ coords, results: 1, kind: 'house' });
+	const addresses = await useGeocode({ coords, results: 2, kind: 'house' });
 
 	if (!addresses.length) return [];
-
-	console.log(addresses);
 
 	const formatAddresses = addresses
 		.map(
