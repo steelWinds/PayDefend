@@ -67,7 +67,7 @@
 				}
 			});
 
-			pointsStore.addPoint({
+			await pointsStore.addPoint({
 				companyId: company.id,
 				companyName: company.name,
 				checked: false,
