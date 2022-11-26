@@ -45,7 +45,7 @@ export async function load({ cookies, request }: IProps) {
 		return redirectToProtected(routeId, '/');
 	}
 
-	if (!auth?.idToken) {
+	if (!auth) {
 		return redirectToProtected(routeId, '/');
 	} else if (routeId === '/' && auth) {
 		return redirectToProtected(routeId, '/map');

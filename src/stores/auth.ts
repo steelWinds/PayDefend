@@ -11,8 +11,14 @@ const createAuthStore = () => {
 		'auth-store'
 	);
 
-	const setUser = (user: IAuthData['user']) => {
-		const { _id } = user;
+	const setUser = (user?: IAuthData['user']) => {
+    if (!user) {
+      set(null)
+      
+      return
+    }
+    
+    const { _id } = user;
 
 		const idToken = _id as string;
 
