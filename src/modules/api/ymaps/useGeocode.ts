@@ -1,14 +1,16 @@
 import type { IGeocodeOptions } from 'yandex-maps';
 import type { ILimitedReq, IGeocodeResponse } from './Types';
 
-import useFetch from '../../useFetch';
-
-const API_KEY = import.meta.env.VITE_YANDEX_API_KEY;
+import createUseFetch from '../../createUseFetch';
 
 interface Props extends ILimitedReq {
 	coords: [number, number];
 	kind: IGeocodeOptions['kind'];
 }
+
+const API_KEY = import.meta.env.VITE_YANDEX_API_KEY;
+
+const useFetch = createUseFetch();
 
 const useGeocode = async (props: Props) => {
 	const { coords, kind, results } = props;

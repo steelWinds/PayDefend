@@ -17,6 +17,8 @@
 
 	const dispatch = createEventDispatcher();
 
+	export let map: any;
+
 	$: mapId = `map-cart_${id}`;
 
 	const API_KEY = import.meta.env.VITE_YANDEX_API_KEY;
@@ -27,8 +29,8 @@
 		});
 	};
 
-	onMount(async () => {
-		await initMap(API_KEY, {
+	onMount(() => {
+		map = initMap(API_KEY, {
 			state,
 			options,
 			id: mapId,

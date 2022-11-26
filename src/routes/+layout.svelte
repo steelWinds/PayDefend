@@ -1,8 +1,11 @@
 <script lang="ts">
 	import { SvelteToast } from '@zerodevx/svelte-toast';
-	import config from '@/configs/svelte-toast-config';
+	import config from '@/configs/svelte-toasts/svelte-toast-config';
+	import pointsStore from '@/stores/points';
 
 	import '../app.css';
+
+	pointsStore.updatePoints();
 </script>
 
 <main data-sveltekit-prefetch>

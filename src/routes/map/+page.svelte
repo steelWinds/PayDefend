@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { IOrganizationFeature } from '@/modules/api/ymaps/Types';
 
+	import { onMount } from 'svelte';
+	import Avatar from '$lib/UI/Avatar.svelte';
 	import YMap from '$lib/Modules/YMap.svelte';
 	import { Modal } from 'carbon-components-svelte';
 	import useOrganizations from '@/modules/api/ymaps/useOrganization';
@@ -8,9 +10,14 @@
 	import BarLoader from '$lib/UI/BarLoader.svelte';
 	import ItemsList from '@/lib/UI/ItemsList.svelte';
 	import Button from '$lib/UI/Button.svelte';
+	import UserCard from '$lib/UI/UserCard.svelte';
+	import pointsStore from '@/stores/points';
+	import userStore from '@/stores/user';
 
+	let mapRef: any | undefined;
 	let addPlacemarkModal: boolean;
 	let showOrganizationModal: boolean;
+	let showUserModal: boolean;
 	let getGealocationDataPromise: Promise<IOrganizationFeature[]>;
 	let currentOrganization: IOrganizationFeature | undefined;
 
@@ -23,9 +30,56 @@
 
 		return organizations;
 	};
+
+	onMount(async () => {
+		const { ymaps, map } = await mapRef;
+
+		pointsStore.subscribe(($points) => {
+			for (let [id, geo] of Object.entries($points)) {
+				const reviewsCount = geo.length;
+				const { coords, companyName, checked } = geo[0];
+				const checkedMsg = checked ? 'Да' : 'Нет';
+				const iconColor = checked ? 'rgb(102 204 153)' : 'rgba(204 51 0)';
+
+				if (!coords?.length) return;
+
+				map.geoObjects.add(
+					new ymaps.Placemark(
+						coords?.reverse(),
+						{
+							balloonContent: `Компания ${companyName}, всего обращений - ${reviewsCount}, подтверждено: ${checkedMsg}`
+						},
+						{
+							preset: 'islands#dotIcon',
+							iconColor
+						}
+					)
+				);
+			}
+		});
+	});
 </script>
 
+<button
+	class="tw-fixed tw-top-2 tw-right-2 tw-z-50 tw-drop-shadow-md"
+	on:click={() => (showUserModal = true)}
+>
+	<Avatar
+		class="
+      tw-bg-white
+      motion-safe:tw-transition-color
+      motion-safe:tw-duration-150
+      hover:tw-bg-x11
+      tw-p-3
+    "
+		size={24}
+		svgClass="tw-mix-blend-multiply"
+		color={$userStore?.color ?? ''}
+	/>
+</button>
+
 <YMap
+	bind:map={mapRef}
 	handlers
 	state={{
 		controls: ['geolocationControl'],
@@ -98,6 +152,7 @@
 	bind:open={showOrganizationModal}
 	passiveModal
 	class="custom-modal no-footer min-size fixed-inline-size"
+	hasForm
 >
 	<a
 		class="link:tw-underline"
@@ -110,5 +165,20 @@
 		{currentOrganization?.properties.CompanyMetaData.name}
 	</a>
 
-	<CompanyCard company={currentOrganization} />
+	<CompanyCard
+		company={currentOrganization}
+		on:success={() => (showOrganizationModal = false)}
+	/>
+</Modal>
+
+<Modal
+	bind:open={showUserModal}
+	passiveModal
+	class="custom-modal no-footer min-size fit-size"
+>
+	<h4 slot="heading" class="tw-mr-3 tw-text-blue tw-font-bold">
+		{$userStore?.name}
+	</h4>
+
+	<UserCard />
 </Modal>

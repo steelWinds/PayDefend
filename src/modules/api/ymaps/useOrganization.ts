@@ -1,7 +1,7 @@
 import type { ILimitedReq, IOrganizationResponse } from './Types';
 
 import useGeocode from './useGeocode';
-import useFetch from '../../useFetch';
+import createUseFetch from '../../createUseFetch';
 
 interface Props extends ILimitedReq {
 	coords: [number, number];
@@ -9,6 +9,8 @@ interface Props extends ILimitedReq {
 }
 
 const API_KEY = import.meta.env.VITE_YANDEX_BIZ_API_KEY;
+
+const useFetch = createUseFetch();
 
 const useOrganizations = async (props: Props) => {
 	const { coords, results, lang } = props;

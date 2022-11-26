@@ -5,8 +5,8 @@ import { persist, createCookieStorage } from '@macfja/svelte-persistent-store';
 import { writable } from 'svelte/store';
 
 const createAuthStore = () => {
-	const { subscribe, update, set } = persist(
-		writable<IAuthData | null>(null),
+	const { subscribe, update, set } = persist<IAuthData | null | undefined>(
+		writable(null),
 		createCookieStorage(),
 		'auth-store'
 	);

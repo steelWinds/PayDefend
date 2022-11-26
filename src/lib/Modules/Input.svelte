@@ -2,18 +2,20 @@
 	import { imask } from '@imask/svelte';
 	import { createEventDispatcher } from 'svelte';
 
+	type IMaskedValue = HTMLInputElement & { unmaskedValue: string };
+
 	interface $$Events {
-		change: CustomEvent<HTMLInputElement>;
+		change: CustomEvent<IMaskedValue>;
 	}
 
-	export let value: string;
+	export let value = '';
 	export let mask: string | RegExp | null = null;
 	export let lazy = true;
 	export let invalid = false;
 
 	const dispatch = createEventDispatcher();
 
-	const onChange = (event: CustomEvent<HTMLInputElement>) => {
+	const onChange = (event: CustomEvent<IMaskedValue>) => {
 		dispatch('change', event.detail);
 	};
 </script>

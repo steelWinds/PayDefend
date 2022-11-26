@@ -24,11 +24,19 @@
 }
 
 button:disabled {
-	@apply tw-opacity-50;
+	@apply tw-opacity-75;
 }
 
 .custom-radio-group {
 	--cds-icon-01: var(--c-blue);
+
+	& .bx--radio-button-wrapper {
+		@apply tw-mb-2 tw-mr-2;
+	}
+
+	& .bx--radio-button-group {
+		@apply tw-flex tw-flex-wrap;
+	}
 
 	&
 		.bx--radio-button:focus
@@ -75,6 +83,12 @@ a:link {
 	& .bx--modal-container {
 		@apply tw-static;
 	}
+
+	&.fit-size {
+		& .bx--modal-container {
+			@apply tw-w-[35vmax];
+		}
+	}
 }
 
 .custom-file-uploader {
@@ -84,6 +98,10 @@ a:link {
 
 	& .bx--btn {
 		@apply tw-p-3;
+	}
+
+	& .bx--file-container {
+		@apply tw-max-h-[200px] tw-overflow-auto;
 	}
 }
 

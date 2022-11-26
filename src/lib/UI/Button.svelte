@@ -1,9 +1,13 @@
 <script lang="ts">
+	import PendingLoader from '$lib/UI/PendingLoader.svelte';
+
 	export let disabled = false;
+	export let pending = false;
 </script>
 
 <button
 	class={`
+    tw-relative
     tw-break-words
     tw-w-full
     tw-text-base
@@ -16,5 +20,7 @@
 	{disabled}
 	on:click
 >
+	<PendingLoader state={pending} zIndex="10" position="absolute" />
+
 	<slot />
 </button>
