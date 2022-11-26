@@ -184,5 +184,5 @@
 		{$userStore?.name}
 	</h4>
 
-	<UserCard />
+	<UserCard watch={showUserModal} />
 </Modal>

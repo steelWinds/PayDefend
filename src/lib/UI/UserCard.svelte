@@ -10,7 +10,13 @@
 
 	type ReviewGroupList = { [key: string]: ICompany[] };
 
+  export let watch: boolean;
+
 	let getReviewListPromise: Promise<ReviewGroupList>;
+
+  $: if (watch) {
+    getReviewListPromise = getReviewList();
+  }
 
 	const getReviewList = () => {
 		return useRestDBIO<ICompany, ReviewGroupList>({
