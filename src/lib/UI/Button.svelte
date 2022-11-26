@@ -20,7 +20,7 @@
 	{disabled}
 	on:click
 >
-	<PendingLoader state={pending} zIndex="10" position="absolute" />
+	<PendingLoader state={pending} zIndex="10" position="absolute" svgClass="tw-w-[32px]" />
 
 	<slot />
 </button>

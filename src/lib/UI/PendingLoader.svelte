@@ -5,6 +5,7 @@
 	export let state: boolean;
 	export let zIndex: string;
 	export let position: 'absolute' | 'fixed';
+  export let svgClass: string;
 </script>
 
 {#if state}
@@ -32,13 +33,13 @@
 	>
 		<slot>
 			<svg
-				class="
-          tw-w-[2vmax]
+				class={`
           tw-aspect-ratio
           tw-stroke-blue
           tw-transition-color
           tw-duration-250
-        "
+          ${svgClass}
+        `}
 				viewBox="0 0 38 38"
 				xmlns="http://www.w3.org/2000/svg"
 			>

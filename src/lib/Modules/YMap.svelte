@@ -3,6 +3,7 @@
 
 	import { onMount, createEventDispatcher } from 'svelte';
 	import initMap from '@/modules/ymaps';
+  import BarLoader from '../UI/BarLoader.svelte';
 
 	interface $$Events {
 		mapClick: CustomEvent<{
@@ -44,11 +45,17 @@
 	});
 </script>
 
+{#await map}
+  <div class="tw-fixed tw-w-full tw-h-full tw-grid tw-place-items-center">
+    <BarLoader size="100" />
+  </div>
+{/await}
+
 <div
-	class={$$restProps.class}
-	id={mapId}
-	role="application"
-	aria-label="Interactive map's element"
->
-	<!-- Yandex-Map content -->
-</div>
+    class={$$restProps.class}
+    id={mapId}
+    role="application"
+    aria-label="Interactive map's element"
+  >
+    <!-- Yandex-Map content -->
+  </div>

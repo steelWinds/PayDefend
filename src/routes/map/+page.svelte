@@ -63,7 +63,7 @@
 </script>
 
 <button
-	class="tw-fixed tw-top-2 tw-right-2 tw-z-50 tw-drop-shadow-md"
+	class="tw-fixed tw-bottom-10 tw-right-6 tablet:tw-bottom-auto tablet:tw-top-2 tw-z-50 tw-drop-shadow-md"
 	on:click={() => (showUserModal = true)}
 >
 	<Avatar
