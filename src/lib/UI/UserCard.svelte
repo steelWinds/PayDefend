@@ -14,10 +14,8 @@
 
 	let getReviewListPromise: Promise<ReviewGroupList>;
 
-  $: {
-    if (watch) {
-      getReviewListPromise = getReviewList();
-    }
+  $: if (watch === true) {
+    getReviewListPromise = getReviewList();
   }
 
 	const getReviewList = () => {

@@ -155,7 +155,7 @@
 <Modal
 	bind:open={showOrganizationModal}
 	passiveModal
-	class="custom-modal no-footer min-size fixed-inline-size"
+	class="custom-modal no-footer min-size fixed-min-inline-size"
 	hasForm
 >
 	<a
@@ -178,7 +178,7 @@
 <Modal
 	bind:open={showUserModal}
 	passiveModal
-	class="custom-modal no-footer min-size fit-size"
+	class="custom-modal no-footer min-size fixed-min-inline-size"
 >
 	<h4 slot="heading" class="tw-mr-3 tw-text-blue tw-font-bold">
 		{$userStore?.name}

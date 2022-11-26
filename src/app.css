@@ -76,7 +76,13 @@ a:link {
 
 	&.fixed-inline-size {
 		& .bx--modal-container {
-			@apply tw-max-w-[45vmax];
+			@apply tw-max-w-[35vmax];
+		}
+	}
+
+  &.fixed-min-inline-size {
+		& .bx--modal-container {
+			@apply tw-max-w-[80vmin];
 		}
 	}
 
