@@ -12,6 +12,7 @@ specifiers:
   '@typescript-eslint/parser': ^5.27.0
   '@zerodevx/svelte-toast': ^0.8.2
   autoprefixer: ^10.4.13
+  browser-image-compression: ^2.0.0
   carbon-components-svelte: ^0.70.12
   cookie: ^0.5.0
   eslint: ^8.16.0
@@ -63,6 +64,7 @@ devDependencies:
   '@typescript-eslint/eslint-plugin': 5.44.0_fnsv2sbzcckq65bwfk7a5xwslu
   '@typescript-eslint/parser': 5.44.0_hsf322ms6xhhd4b5ne6lb74y4a
   autoprefixer: 10.4.13_postcss@8.4.19
+  browser-image-compression: 2.0.0
   carbon-components-svelte: 0.70.12
   eslint: 8.28.0
   eslint-config-prettier: 8.5.0_eslint@8.28.0
@@ -558,6 +560,12 @@ packages:
   /browser-cookies/1.2.0:
     resolution: {integrity: sha512-cg2WuoOJo+F+g2XjEaP8nmeRp1vDHjt7sqpKJMsTNXKrpyIBNVslYJeehvs6FEddj8usV2+qyRSBEX244yN5/g==}
     dev: false
+
+  /browser-image-compression/2.0.0:
+    resolution: {integrity: sha512-kBlkZo13yOOfcmrPW0M0K/UdZPogIQj2gRvXIM3FktAnfW6VRq9aY2RI+F6O0x6DMj1Xm+WLGgWcFK8Fu/ddnw==}
+    dependencies:
+      uzip: 0.20201231.0
+    dev: true
 
   /browserslist/4.21.4:
     resolution: {integrity: sha512-CBHJJdDmgjl3daYjN5Cp5kbTf1mUhZoS+beLklHIvkOWscs83YAhLlF3Wsh/lciQYAcbBJgTOD44VtG31ZM4Hw==}
@@ -2168,6 +2176,10 @@ packages:
 
   /util-deprecate/1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
+    dev: true
+
+  /uzip/0.20201231.0:
+    resolution: {integrity: sha512-OZeJfZP+R0z9D6TmBgLq2LHzSSptGMGDGigGiEe0pr8UBe/7fdflgHlHBNDASTXB5jnFuxHpNaJywSg8YFeGng==}
     dev: true
 
   /vite/3.2.4:

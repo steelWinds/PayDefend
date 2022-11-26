@@ -50,8 +50,6 @@
 
 			const images = await imgReader($files.value);
 
-			console.log(company);
-
 			await useRestDBIO<ICompany>({
 				endpoint: 'companydata',
 				method: 'POST',

@@ -43,8 +43,6 @@
 				const checkedMsg = checked ? 'Да' : 'Нет';
 				const iconColor = checked ? 'rgb(102 204 153)' : 'rgba(204 51 0)';
 
-        console.log(coords)
-
 				if (!coords?.length) return;
 
 				map.geoObjects.add(

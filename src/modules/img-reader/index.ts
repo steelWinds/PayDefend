@@ -1,7 +1,16 @@
-const imgReader = async (files: File[]): Promise<string[]> => {
+import type { ICompressionParams } from './Types';
+
+import compression from './compression';
+
+const imgReader = async (
+	files: readonly File[],
+	options?: ICompressionParams,
+): Promise<string[]> => {
 	const images = Array.from(files).filter((file) => file.size);
 
-	const promises: Promise<string>[] = images.map((image) => {
+  const compressedImages = await compression(images, options);
+
+	const promises: Promise<string>[] = compressedImages.map((image) => {
 		return new Promise((resolve, reject) => {
 			const reader = new FileReader();
 

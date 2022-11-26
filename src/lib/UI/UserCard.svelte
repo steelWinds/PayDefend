@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { ICompany } from '@/modules/api/restdbio/Types';
 
-	import { beforeUpdate } from 'svelte';
+	import { onMount } from 'svelte';
 	import authUser from '@/stores/auth';
 	import SwiperList from '$lib/UI/SwiperList.svelte';
 	import ReviewTag from '$lib/UI/ReviewTag.svelte';
@@ -15,7 +15,7 @@
 	let getReviewListPromise: Promise<ReviewGroupList>;
 
   $: if (watch === true) {
-    getReviewListPromise = getReviewList();
+    getReviewListPromise = getReviewList()
   }
 
 	const getReviewList = () => {
@@ -29,7 +29,7 @@
 		});
 	};
 
-	beforeUpdate(() => {
+	onMount(() => {
 		getReviewListPromise = getReviewList();
 	});
 </script>
@@ -38,11 +38,12 @@
 	<SwiperList
 		class="tw-mb-6 tw-mx-auto"
 		items={[
-			'U sdfsd fsdf sdf sdf',
-			'I sdf sdf sdf sdf',
-			'I sdfdf sdfdfsdfsd fsd',
-			'I sdfdf sdfdfsdfsd fsd',
-			'I sdfdf sdfdfsdfsd fsd'
+			'Достижение 1',
+			'Достижение 2',
+			'Достижение 3',
+			'Достижение 4',
+			'Достижение 5',
+			'Достижение 6',
 		]}
 		let:item
 	>
@@ -58,11 +59,13 @@
 	<h3 class="tw-text-lg tw-font-bold tw-mb-3">Ваши обращения</h3>
 
 	{#await getReviewListPromise}
-		<BarLoader size="100" />
+		<div class="tw-py-2">
+      <BarLoader size="100" />
+    </div>
 	{:then data}
 		<div class="snap-proximity tw-snap-y tw-max-h-[25vmax] tw-overflow-auto">
 			{#if !Object.values(data ?? {})?.length}
-        <span> Упс! Кажется вы еще не оставили ни один отзыв </span>
+        <span class="tw-inline-block tw-max-w-[60ch]"> Упс! Кажется вы еще не оставили ни один отзыв, вы можете исправить это просто нажав на любое место карты! </span>
       {:else}
         {#each Object.entries(data ?? {}) as [name, list]}
           <ReviewTag

@@ -5,12 +5,13 @@
 </script>
 
 <span
-	class="
+	class={`
     tw-inline-block
     tw-w-fit
     tw-overflow-hidden
     tw-rounded-xl
-  "
+    ${$$restProps.class}
+  `}
 >
-	<BarLoader {size} color="#0f62fe" unit="px" duration="1.25s" />
+	<BarLoader {size} color="#0f62fe" unit="px" duration="1.50s" />
 </span>

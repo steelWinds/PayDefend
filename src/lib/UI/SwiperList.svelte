@@ -2,7 +2,6 @@
 	import { Swiper, SwiperSlide } from 'swiper/svelte';
 	import { Navigation } from 'swiper';
 
-	// Import Swiper styles
 	import 'swiper/css';
 
 	type T = $$Generic;
