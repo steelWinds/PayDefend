@@ -35,11 +35,15 @@
 		const { ymaps, map } = await mapRef;
 
 		pointsStore.subscribe(($points) => {
-			for (let [id, geo] of Object.entries($points)) {
+      map.geoObjects.removeAll();
+
+			for (let [_, geo] of Object.entries($points)) {
 				const reviewsCount = geo.length;
 				const { coords, companyName, checked } = geo[0];
 				const checkedMsg = checked ? 'Да' : 'Нет';
 				const iconColor = checked ? 'rgb(102 204 153)' : 'rgba(204 51 0)';
+
+        console.log(coords)
 
 				if (!coords?.length) return;
 

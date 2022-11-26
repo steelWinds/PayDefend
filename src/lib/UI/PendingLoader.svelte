@@ -33,7 +33,7 @@
 		<slot>
 			<svg
 				class="
-          tw-w-[3vmax]
+          tw-w-[2vmax]
           tw-aspect-ratio
           tw-stroke-blue
           tw-transition-color
