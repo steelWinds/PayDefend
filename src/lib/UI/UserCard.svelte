@@ -6,6 +6,7 @@
 	import SwiperList from '$lib/UI/SwiperList.svelte';
 	import ReviewTag from '$lib/UI/ReviewTag.svelte';
 	import useRestDBIO from '@/modules/api/restdbio';
+  import BarLoader from '$lib/UI/BarLoader.svelte';
 
 	type ReviewGroupList = { [key: string]: ICompany[] };
 
@@ -51,17 +52,21 @@
 	<h3 class="tw-text-lg tw-font-bold tw-mb-3">Ваши обращения</h3>
 
 	{#await getReviewListPromise}
-		Loading...
+		<BarLoader size="100" />
 	{:then data}
 		<div class="snap-proximity tw-snap-y tw-max-h-[25vmax] tw-overflow-auto">
-			{#each Object.entries(data ?? {}) as [name, list]}
-				<ReviewTag
-					class="tw-snap-center"
-					url={list[0]?.companyURL ?? ''}
-					{name}
-					count={list.length}
-				/>
-			{/each}
+			{#if !Object.values(data ?? {})?.length}
+        <span> Упс! Кажется вы еще не оставили ни один отзыв </span>
+      {:else}
+        {#each Object.entries(data ?? {}) as [name, list]}
+          <ReviewTag
+            class="tw-snap-center"
+            url={list[0]?.companyURL ?? ''}
+            {name}
+            count={list.length}
+          />
+        {/each}
+      {/if}
 		</div>
 	{/await}
 </div>
