@@ -33,9 +33,9 @@ export async function load({ cookies, request }: IProps) {
 		const response = await useRestDBIO<IUser, IUser[]>({
 			endpoint: 'usersdata',
 			method: 'GET',
-      queries: {
-        q: { _id: idToken }
-      }
+			queries: {
+				q: { _id: idToken }
+			}
 		});
 
 		const user = response?.[0];

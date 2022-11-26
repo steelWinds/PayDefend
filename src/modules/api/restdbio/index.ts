@@ -19,7 +19,6 @@ const useRestDBIO = async <T extends Provides, A = T>(
 	props: IProps<T>
 ): Promise<A> => {
 	const { endpoint, method, body, queries } = props;
-
 	const { q, ...otherQueries } = queries ?? {};
 
 	const { data } = await useFetch<readonly T[]>(endpoint, {
@@ -27,7 +26,7 @@ const useRestDBIO = async <T extends Provides, A = T>(
 		headers: {
 			'x-apikey': API_KEY
 		},
-		body: method !== 'GET' && method !== 'HEAD' ? body : undefined,
+		body: method !== 'GET' && method !== 'HEAD' ? body : null,
 		query:
 			method === 'GET'
 				? {
